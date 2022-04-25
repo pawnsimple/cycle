@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  go:
+    build:
+      context: ./GO
+      dockerfile: dockerfile
+    image: pawnsimple/go 
+    container_name: go
