@@ -1,10 +1,9 @@
 version: '3'
 
 services:
-
   go:
     build:
       context: ./GO
       dockerfile: dockerfile
-    image: pawnsimple/go 
+    image: pawnsimple/codeeducation
     container_name: go

@@ -1,8 +1,9 @@
 FROM golang:1.7-alpine
-
-
-ADD . /GO
-        
 WORKDIR /GO
+COPY ./ .
+RUN CGO_ENABLED=0 GOOS=linux go build -o hello-world .
 
-CMD ["go","run","hello-word.go"]
+FROM scratch
+WORKDIR /GO
+COPY --from=0 /GO/hello-world .
+ENTRYPOINT ["./hello-world"]
